@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="description" content="programma website">
+	<meta name="author" content="programma">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>programma</title>
+
+	<link rel="preload" href="images/desk2.gif" as="image" type="image/gif" />
+
+	<style>
+		body {
+			text-align: center;
+			background-color: black;
+		}
+
+		h1, h4, p {
+			font-size: 18px;
+		}
+
+		a {
+			text-decoration: none;
+			color: inherit;
+			transition: font-size 0.3s ease;
+			font-size: 1em;
+		}
+
+		a:focus, a:hover, a:active {
+			color: #00ff00;
+			font-size: 1.2em;
+			text-decoration: underline;
+		}
+
+		.main {
+			max-width: 1270px;
+			margin: 0 auto;
+			border: 2px solid black;
+		}
+
+		.transform {
+			width: 80%;
+			overflow: hidden;
+			margin: 0 auto;
+		}
+
+		.transform img {
+			width: 100%;
+			transition: 0.17s all ease-in-out;
+		}
+
+		.transform:hover img {
+			transform: scale(1.04);
+		}
+
+		.content {
+			display: flex;
+			justify-content: center;
+			flex-direction: column;
+			max-width: 1050px;
+			margin: 0 auto;
+			color: white;
+			-ms-overflow-style: none;
+			scrollbar-width: none;
+		}
+
+		.content::-webkit-scrollbar {
+			display: none;
+		}
+
+		@media (min-width: 768px) and (max-width: 1200px) {
+			h1 {
+				font-size: 18px;
+			}
+
+			h4, p {
+				font-size: 16px;
+			}
+		}
+
+		@media (min-width: 1200px) {
+			h1 {
+				font-size: 22px;
+			}
+
+			h4, p {
+				font-size: 18px;
+			}
+		}
+
+		@media (max-width: 768px) {
+			h1 {
+				font-size: 16px;
+			}
+
+			h4 {
+				font-size: 15px;
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+
+		@media (max-width: 576px) {
+			h1 {
+				font-size: 16px;
+			}
+
+			h4 {
+				font-size: 15px;
+			}
+
+			p {
+				font-size: 14px;
+			}
+		}
+	</style>
+
+</head>
+<body>
+<div class="main">
+	<div class="transform">
+			<a href="index.html">
+				<img src="images/desk2.gif" alt="landing-logo">
+			</a>
+</div>
+	<div class="content">
+		<div class="promo">
+			<h1>programma is a group of friends who work as programmers and hackers in Romania.</h1>
+			<h4>programma developers do web programming, realtime magic, network deep dives, mostly on Unix and
+				with
+				open-source software.</h4>
+			<h4>We are doers. We do what others talk about.</h4>
+		</div>
+		<div class="contact">
+			<p>For enquiries, questions, or business offers contact us at
+				<a href="mailto:contact@programma.cc">contact@programma.cc</a></p>
+			<p>
+				You can also reach any of us individually and directly:
+				<a href="mailto:andrei@programma.cc">Andrei</a>,
+				<a href="mailto:richard@programma.cc">Richard</a>,
+				<a href="mailto:robert@programma.cc">Robert</a>,
+				<a href="mailto:tudor@programma.cc">Tudor</a>,
+				<a href="mailto:tudor@programma.cc">Victor</a>,
+				<a href="mailto:marius@programma.cc">Marius</a>
+			</p>
+		</div>
+
+	</div>
+</div>
+<script type="text/javascript">
+	// <![CDATA[
+	var colour = "lime"; // in addition to "random" can be set to any valid colour eg "#f0f" or "red"
+	var sparkles = 50;
+
+	/****************************
+	 *  Tinkerbell Magic Sparkle *
+	 *(c)2005-13 mf2fm web-design*
+	 ****************************/
+	var x = ox = 400;
+	var y = oy = 300;
+	var swide = 800;
+	var shigh = 600;
+	var sleft = sdown = 0;
+	var tiny = [];
+	var star = [];
+	var starv = [];
+	var starx = [];
+	var stary = [];
+	var tinyx = [];
+	var tinyy = [];
+	var tinyv = [];
+
+	window.onload = function() {
+		if (document.getElementById) {
+			var i, rats, rlef, rdow;
+			for (var i = 0; i < sparkles; i ++) {
+				var rats = createDiv(3, 3);
+				rats.style.visibility = "hidden";
+				rats.style.zIndex = "999";
+				document.body.appendChild(tiny[i] = rats);
+				starv[i] = 0;
+				tinyv[i] = 0;
+				var rats = createDiv(5, 5);
+				rats.style.backgroundColor = "transparent";
+				rats.style.visibility = "hidden";
+				rats.style.zIndex = "999";
+				var rlef = createDiv(1, 5);
+				var rdow = createDiv(5, 1);
+				rats.appendChild(rlef);
+				rats.appendChild(rdow);
+				rlef.style.top = "2px";
+				rlef.style.left = "0px";
+				rdow.style.top = "0px";
+				rdow.style.left = "2px";
+				document.body.appendChild(star[i] = rats);
+			}
+			set_width();
+			sparkle();
+		}
+	}
+
+	function sparkle() {
+		var c;
+		if (Math.abs(x - ox) > 1 || Math.abs(y - oy) > 1) {
+			ox = x;
+			oy = y;
+			for (c = 0; c < sparkles; c ++) if ( ! starv[c]) {
+				star[c].style.left = (starx[c] = x) + "px";
+				star[c].style.top = (stary[c] = y + 1) + "px";
+				star[c].style.clip = "rect(0px, 5px, 5px, 0px)";
+				star[c].childNodes[0].style.backgroundColor = star[c].childNodes[1].style.backgroundColor = (colour === "random") ? newColour() : colour;
+				star[c].style.visibility = "visible";
+				starv[c] = 50;
+				break;
+			}
+		}
+		for (c = 0; c < sparkles; c ++) {
+			if (starv[c]) update_star(c);
+			if (tinyv[c]) update_tiny(c);
+		}
+		setTimeout("sparkle()", 40);
+	}
+
+	function update_star(i) {
+		if (-- starv[i] === 25) star[i].style.clip = "rect(1px, 4px, 4px, 1px)";
+		if (starv[i]) {
+			stary[i] += 1 + Math.random() * 3;
+			starx[i] += (i % 5 - 2) / 5;
+			if (stary[i] < shigh + sdown) {
+				star[i].style.top = stary[i] + "px";
+				star[i].style.left = starx[i] + "px";
+			} else {
+				star[i].style.visibility = "hidden";
+				starv[i] = 0;
+
+			}
+		} else {
+			tinyv[i] = 50;
+			tiny[i].style.top = (tinyy[i] = stary[i]) + "px";
+			tiny[i].style.left = (tinyx[i] = starx[i]) + "px";
+			tiny[i].style.width = "2px";
+			tiny[i].style.height = "2px";
+			tiny[i].style.backgroundColor = star[i].childNodes[0].style.backgroundColor;
+			star[i].style.visibility = "hidden";
+			tiny[i].style.visibility = "visible"
+		}
+	}
+
+	function update_tiny(i) {
+		if (-- tinyv[i] === 25) {
+			tiny[i].style.width = "1px";
+			tiny[i].style.height = "1px";
+		}
+		if (tinyv[i]) {
+			tinyy[i] += 1 + Math.random() * 3;
+			tinyx[i] += (i % 5 - 2) / 5;
+			if (tinyy[i] < shigh + sdown) {
+				tiny[i].style.top = tinyy[i] + "px";
+				tiny[i].style.left = tinyx[i] + "px";
+			} else {
+				tiny[i].style.visibility = "hidden";
+				tinyv[i] = 0;
+
+			}
+		} else tiny[i].style.visibility = "hidden";
+	}
+
+	document.onmousemove = mouse;
+
+	function mouse(e) {
+		if (e) {
+			y = e.pageY;
+			x = e.pageX;
+		} else {
+			set_scroll();
+			y = event.y + sdown;
+			x = event.x + sleft;
+		}
+	}
+
+	window.onscroll = set_scroll;
+
+	function set_scroll() {
+		if (typeof (self.pageYOffset) == 'number') {
+			sdown = self.pageYOffset;
+			sleft = self.pageXOffset;
+		} else if (document.body && (document.body.scrollTop || document.body.scrollLeft)) {
+			sdown = document.body.scrollTop;
+			sleft = document.body.scrollLeft;
+		} else if (document.documentElement && (document.documentElement.scrollTop || document.documentElement.scrollLeft)) {
+			sleft = document.documentElement.scrollLeft;
+			sdown = document.documentElement.scrollTop;
+		} else {
+			sdown = 0;
+			sleft = 0;
+		}
+	}
+
+	window.onresize = set_width;
+
+	function set_width() {
+		var sw_min = 999999;
+		var sh_min = 999999;
+		if (document.documentElement && document.documentElement.clientWidth) {
+			if (document.documentElement.clientWidth > 0) sw_min = document.documentElement.clientWidth;
+			if (document.documentElement.clientHeight > 0) sh_min = document.documentElement.clientHeight;
+		}
+		if (typeof (self.innerWidth) == 'number' && self.innerWidth) {
+			if (self.innerWidth > 0 && self.innerWidth < sw_min) sw_min = self.innerWidth;
+			if (self.innerHeight > 0 && self.innerHeight < sh_min) sh_min = self.innerHeight;
+		}
+		if (document.body.clientWidth) {
+			if (document.body.clientWidth > 0 && document.body.clientWidth < sw_min) sw_min = document.body.clientWidth;
+			if (document.body.clientHeight > 0 && document.body.clientHeight < sh_min) sh_min = document.body.clientHeight;
+		}
+		if (sw_min === 999999 || sh_min === 999999) {
+			sw_min = 800;
+			sh_min = 600;
+		}
+		swide = sw_min;
+		shigh = sh_min;
+	}
+
+	function createDiv(height, width) {
+		var div = document.createElement("div");
+		div.style.position = "absolute";
+		div.style.height = height + "px";
+		div.style.width = width + "px";
+		div.style.overflow = "hidden";
+		return (div);
+	}
+
+	function newColour() {
+		var c = [];
+		c[0] = 255;
+		c[1] = Math.floor(Math.random() * 256);
+		c[2] = Math.floor(Math.random() * (256 - c[1] / 2));
+		c.sort(function() {return (0.5 - Math.random());});
+		return ("rgb(" + c[0] + ", " + c[1] + ", " + c[2] + ")");
+	}
+
+	// ]]>
+</script>
+</body>
+</html>
+<!--Artwork by Viktor Tibay-->
+<!--programma © All rights reserved -->
