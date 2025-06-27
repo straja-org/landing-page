@@ -1,0 +1,117 @@
+:root {
+    --color-background: black;
+    --color-text: white;
+    --color-highlight: #00ff00;
+    --font-size-base: 18px;
+    --font-size-small: 14px;
+    --font-size-medium: 16px;
+    --font-size-large: 22px;
+    --transition-duration: 0.3s;
+    --transform-scale: 1.04;
+    --content-max-width: 1050px;
+    --main-max-width: 1270px;
+}
+
+body {
+    text-align: center;
+    background-color: var(--color-background);
+}
+
+/* Main container styles */
+.main {
+    max-width: var(--main-max-width);
+    margin: 0 auto;
+    border: 2px solid var(--color-background);
+}
+
+/* Logo container styles */
+.main__logo-container {
+    width: 80%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.main__logo-image {
+    width: 100%;
+    transition: transform 0.17s ease-in-out;
+}
+
+.main__logo-container:hover .main__logo-image {
+    transform: scale(var(--transform-scale));
+}
+
+/* Content section styles */
+.content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    max-width: var(--content-max-width);
+    margin: 0 auto;
+    color: var(--color-text);
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.content::-webkit-scrollbar {
+    display: none;
+}
+
+/* Typography styles */
+.content__title,
+.content__subtitle {
+    font-size: var(--font-size-base);
+}
+
+/* Link styles */
+.content__link {
+    text-decoration: none;
+    color: inherit;
+    transition: font-size var(--transition-duration) ease;
+    font-size: 1em;
+}
+
+.content__link:focus,
+.content__link:hover,
+.content__link:active {
+    color: var(--color-highlight);
+    font-size: 1.2em;
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 576px) {
+    .content__title {
+        font-size: var(--font-size-small);
+    }
+
+    .content__subtitle {
+        font-size: var(--font-size-small);
+    }
+}
+
+@media (min-width: 577px) and (max-width: 768px) {
+    .content__title {
+        font-size: var(--font-size-medium);
+    }
+
+    .content__subtitle {
+        font-size: var(--font-size-small);
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+    .content__title,
+    .content__subtitle {
+        font-size: var(--font-size-medium);
+    }
+}
+
+@media (min-width: 1201px) {
+    .content__title {
+        font-size: var(--font-size-large);
+    }
+
+    .content__subtitle {
+        font-size: var(--font-size-base);
+    }
+}
